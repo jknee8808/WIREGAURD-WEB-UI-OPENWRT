@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>wireguard router</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+   <script src='/js/jquery.min.js'></script> 
+   <script src='/js/jecscript.js'></script> 
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+
+
+    
+
+
+<script>
+
+$(function(){ //ready function
+    $('#myHref').click(function(){ //click event
+         return confirm('Are you sure you want to update?');
+    });
+})
+
+$(function(){ //ready function
+    $('#myHref10').click(function(){ //click event
+         return confirm('Are you sure you want to update?');
+    });
+})
+
+
+$(function(){ //ready function
+    $('#myHref6').click(function(){ //click event
+         return confirm('Are you sure you want to continue?');
+    });
+})
+
+$(function(){ //ready function
+    $('#myHref7').click(function(){ //click event
+         return confirm('Are you sure you want to continue?');
+    });
+})
+
+
+
+
+$("#myHref1").on('click', function() {
+  return confirm(' are you sure!!! want ot have an updgrade?');
+  
+});
+
+$("#myHref2").on('click', function() {
+  return confirm(' upload local file here for offline update');
+  
+});
+
+$("#myHref3").on('click', function() {
+  return confirm(' be sure your device has bigger space?');
+  
+});
+
+$("#myHref4").on('click', function() {
+  return confirm(' deleting files and reboot?');
+  
+});
+
+$("#myHref5").on('click', function() {
+  return confirm('protect device?');
+  
+});
+
+
+
+
+</script>
+
+
+<style>
+body {
+ background-repeat: repeat;
+background-size: cover;
+background-color: ; 
+
+
+
+}
+
+
+</style>
+
+<style>
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+</style>
+<script>
+
+function userpassword() {
+  var x = document.getElementById("pass");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+function wifipassword() {
+  var x = document.getElementById("pass");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+
+            setInterval(function() {
+                $('#logs').load('/cgi-bin/ovpnlogs.cgi');
+            }, 1000);
+setInterval(function() {
+                $('#ssllogs').load('/cgi-bin/ssllogs.cgi');
+            }, 1000);
+  setInterval(function() {
+                $('#infos').load('/cgi-bin/head');
+            }, 1000);
+            function connect() {
+                $.get('/cgi-bin/connect.cgi', function(data) {
+                    alert(data);
+                });
+            }
+			
+	
+	function reconnect() {
+                $.get('/cgi-bin/ovpnrestart.cgi', function(data) {
+                    alert(data);
+                });
+	
+
+ function update() {
+                $.get('/cgi-bin/update', function(data) {
+                    alert(data);
+                });
+            }
+
+            function addstartup() {
+                $.get('/cgi-bin/addstartup.cgi', function(data) {
+                    alert(data);
+                });
+            }
+
+  function stunnel() {
+                $.get('/cgi-bin/stunnel', function(data) {
+                    alert(data);
+                });
+            }
+
+
+            function removestartup() {
+                $.get('/cgi-bin/removestartup.cgi', function(data) {
+                    alert(data);
+                });
+            }
+
+ function sslstop() {
+                $.get('/cgi-bin/sslstop.cgi', function(data) {
+                    alert(data);
+
+                });
+            }
+
+ function sslstart() {
+                $.get('/cgi-bin/ssltart.cgi', function(data) {
+                    alert(data);
+
+                });
+            }
+            window.setInterval(function() {
+                var elem = document.getElementById('logs');
+                elem.scrollTop = elem.scrollHeight;
+            }, 100);
+		 window.setInterval(function() {
+                var elem = document.getElementById('ssllogs');
+                elem.scrollTop = elem.scrollHeight;
+            }, 100);
+
+
+
+
+	$(document).ready(function () {
+	var t = $("#wifiname").val();
+	$.ajax({
+		type: "GET",
+		url: "/cgi-bin/wifiname.cgi",
+		success: function (t) {
+			$("#name").val(t)
+		}
+	})
+});
+$(document).ready(function () {
+	var t = $("#wifipass").val();
+	$.ajax({
+		type: "GET",
+		url: "/cgi-bin/wifipass.cgi",
+		success: function (t) {
+			$("#pass").val(t)
+		}
+	})
+});
+
+
+        </script>
+
+<center>
+
+ <img src="logo.png" alt="Avatar" style="width:200px"">
+<div class="boxer">
+	<div class="box-row">
+		<div class="box">  <b><font size="1" color="white">wireguard router v1.0<p>&copy; 2017-2019<p></font></b></div>&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;
+
+
+&nbsp;&nbsp;
+
+		</div>
+	</div>
+</div>
+
+
+
+
+  </div>
+<style>
+
+.boxer {
+   display: table;
+   border-collapse: collapse;
+}
+ 
+.boxer .box-row {
+   display: table-row;
+}
+ 
+.boxer .box {
+   display: table-cell;
+   text-align: left;
+   vertical-align: top;
+   border: 0px solid black;
+}
+
+
+
+
+
+
+}
+
+
+</style>
+
+</div>
+
+      <script  src="js/index.js"></script>
+	<div style="background-color:; background-size: cover; background-repeat: no-repeat; height: 420px; width: 550px; border: 1px solid black;">
+<b><div class="box">  <div id ="demotext4"><text id="infos"></b>
+
+</text>
+
+<br>
+<div class="tab">
+<button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen"><font color="white">---WIREGUARD---</font></button>
+
+   <button class="tablinks" onclick="openCity(event, 'Tokyo1')"><font color="white">---SETTINGS---</font></button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo2')"><font color="white">---WIFI---</font></button>
+<button class="tablinks" onclick="openCity(event, 'Tokyo3')"><font color="white">---MISC---</font></button>
+</div>
+
+<div id="London" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+ <div class="container-name">
+<div class="">
+<br />
+
+
+<form action="/cgi-bin/upload.cgi" method="post" enctype="multipart/form-data">
+          <font color="grey"><h1> <b>upload your wireguard config here</b><h1></font>
+            <br />
+              <br />
+            <span class="d"><input type="file" name="txt" id="file" accept=".txt"></input></span>
+
+            <input type="submit" class="d" name="submit" value="Upload" onclick="alert('upload successfully!')"></input>
+        </form>
+<br />
+<br />
+    <form action="/cgi-bin/select.cgi" method="post" enctype="multipart/form-data">
+ <div id="list">
+                    <select title="Select openvpn configuration" class="text" name="config"></select>
+                  </div>
+
+<br />
+
+
+<input type="submit" value=" SAVE" class="" value="Submit" onclick="alert('Save successfully!')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" formaction="/cgi-bin/delete.cgi" class="" onclick="alert('Delete successfully!')">DELETE</button>
+</form>       
+ 
+<br>
+<br>
+
+<center>	<text id="ovpnbutton"><input type="button" onclick="javascript:connect()" class='m' value="START"></text></center>
+   
+</div>
+  
+</div>
+</div>
+<div id="Paris" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+ <div class="">
+<br />
+<br />
+<br />
+<br />
+<form action="/cgi-bin/account2.cgi" method="post" enctype="multipart/form-data" onsubmit="alert('Save Successfully!')">
+
+        <label id="user-name">
+         
+
+          <input type="text" name="username" placeholder=" USERNAME HERE" class="">
+        </label>
+
+        <label id="user-pass">
+<br>
+<br>
+
+         
+          <input type="text" name="username2" placeholder=" PASSWORD HERE" class="">
+        </label>
+
+<br>
+<br>
+          <input type="submit" value=" SAVE" class="d" value="Submit">
+        
+    </form>
+
+</div>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+   <span class="d"><textarea id="logs" style="color:grey;width:500px;height:200px;font-size:8pt; background-color: white;" readonly></textarea></span>
+
+
+</div>
+
+<div id="Tokyo1" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+   <form action="/cgi-bin/sysupgrade.cgi" onsubmit="return confirm('are you sure?!')" method="post" enctype="multipart/form-data">
+               <font color="red"><mark> <b>for systemupgrade bin here</b></mark></font>
+            <br />
+            <span class="d"><input type="file" name="ovpn" id="file" accept=".bin"></input></span>
+            <input type="submit" class="" name="submit" value="Upload"></input>
+        </form>
+<br />
+
+
+
+<form action="/cgi-bin/offlineserver.cgi" method="post" enctype="multipart/form-data">
+         <font color="red"><mark> <b>for offline server update file must be a server.tar.gz</b></mark></font>
+            <br />
+              
+            <span class="d"><input type="file" name="ovpn" id="file" accept=".gz"></input></span>
+            <input type="submit" class="" name="submit" value="Upload" id="myHref6"></input>
+        </form>
+
+
+<br />
+ 
+
+  <span class="d"><a href="./cgi-bin/links.cgi" id="myHref6"><i class="	fa fa-trash-o" aria-hidden="true"></i>REBOOT</a></span>
+
+ 
+
+</div>
+
+<div id="Tokyo2" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <form action="./cgi-bin/test.sh" method="get" onsubmit="alert('Save Successfully!')">
+<font color="grey"><h1><b>THIS IS ONLY FOR 2GHZ FREQUENCY<br /></h1>
+
+<h1><b>ENTER WIFI SSID: </h1><input type="text"   id="name" placeholder="wifiname" name="username"></input> <br />
+
+<h1>ENTER WIFI KEY :   </h1><input type="password" id="pass" placeholder="wifipass"  name="username2"></input><br><input type="checkbox" onclick="wifipassword()">Show Password
+<br /></font>
+
+<input type="submit" name="subbtn" value="Submit">
+
+</form>
+</div>
+
+<div id="Tokyo3" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+<br />
+<br />
+
+<span class="d"><a href="./cgi-bin/wireguardupdate" id="myHref6"><i class="	fa fa-trash-o" aria-hidden="true"></i>WIREGUARD SETUP</a></span>
+<br />
+<br />
+
+<span class="d"><a href="./cgi-bin/openvpnupdate" id="myHref6"><i class="	fa fa-trash-o" aria-hidden="true"></i>OPENVPN SETUP</a></span>
+<br />
+<br />
+<br />
+
+<br />
+
+<br />
+  <form action="./cgi-bin/test2.sh" method="get" onsubmit="alert('Save Successfully!')">
+<font color="grey"> <b>TIME AND DATE SETTINGS<br />
+
+
+<h1>ENTER  DATE FORMAT  YYYY-MM-DD  THEN ENTER THEN TIME FORMAT HHMM ENTER </h1><br /><input type="text"  placeholder="date and time"  name="username2"></input> 
+
+
+</font>
+
+
+<input type="submit" name="subbtn" value="Submit">
+</form>
+</div>
+<br />
+
+</form>
+</div>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+ <br>
+	
+<br>
+
+<br>
+<br>
+
+
+
+
+ 
+<br>
+
+
+<script>
+
+ setInterval(function() {
+                $('#wifi').load('/cgi-bin/wifi');
+            }, 1000);
+
+</script>
+
+
+</div>
+
+</center>
+</body>
+
+
+ <script type="text/javascript">
+            $("#list").load("/cgi-bin/showlist.cgi");
+          </script>
+
+<script>
+setInterval(function () {
+	$("#ovpnbutton").load("/cgi-bin/openvpnbutton.cgi")
+}, 1000);
+</script>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+</html>

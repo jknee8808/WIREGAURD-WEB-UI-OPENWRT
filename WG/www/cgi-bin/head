@@ -1,0 +1,28 @@
+#!/bin/sh
+
+
+
+echo Content-type: text/html
+echo
+SHOWDATE=`date +"%B %d, %Y %I:%M:%S %p"`
+DOWNLOAD=`ifconfig wg0 2> /dev/null | grep "RX bytes" |  busybox awk '{print $3,$4}' | busybox tr -d '()'`
+UPLOAD=`ifconfig wg0 2> /dev/null | grep "RX bytes" |  busybox awk '{print $7,$8}' | busybox tr -d '()'`
+DEVICEIP=`ip addr show wan0 | grep inet | busybox awk '{print $4}'`
+VPNIP=`ifconfig wg0 | grep "inet addr:" | busybox cut -d: -f2 | busybox awk '{print $1}'`
+SYSINFO=`cat /tmp/sysinfo/model`
+
+
+SERVER=`grep vpnrouter /etc/openvpn/server.ovpn`
+echo "<font size="1" color="black">UL:$UPLOAD  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  DL:$DOWNLOAD</font>"
+echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="1" color="black"> $SHOWDATE</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+echo "<font size="1" color="black"> $SYSINFO</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+
+
+
+if [ -n "$VPNIP" ]; then
+echo " <font size="2" color="#0faf15">CONNECTED</font>"
+
+else
+
+echo " <font size="2" color="red">DISCONNECTED</font>"
+fi
